@@ -13,3 +13,5 @@ If you have no other previous experience with MRI data (pre-)processing, here ar
 - fMRIPrep offical site: [Here](https://fmriprep.org/en/stable/)
 
 Join Neuroimaging Workshops group (on D2L) for more imaging data processing workshops and tutorials. Usually meet on Mondays. Email Dianne Patterson ([dkp@arizona.edu](mailto:dkp@arizona.edu)) to be added to the D2L site.
+
+![D2L_site](img/D2L.png)
