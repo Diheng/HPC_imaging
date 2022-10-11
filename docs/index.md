@@ -2,20 +2,13 @@
 
 Author: Diheng Zhang (diheng.zhang@gmail.com)
 
-This is intended to be a documentation for starting fMRI data processing on HPC at UA. This is best read alongside with Saren
+This is intended to be a documentation for starting fMRI data processing on HPC at UA. 
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Starter resources
 
-## Commands
+If you have no other previous experience with MRI data (pre-)processing, here are some external resources that can help you start:
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+- Dr. Saren H. Seeley's documentation on BIDS, fMRIPrep, MRIQC (local processing): https://rpubs.com/sarenseeley/463941
+- BIDS starter kit: https://bids-standard.github.io/bids-starter-kit/
+- fMRIPrep offical site: https://fmriprep.org/en/stable/
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
