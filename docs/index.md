@@ -8,7 +8,8 @@ This is intended to be a documentation for starting fMRI data processing on HPC 
 
 If you have no other previous experience with MRI data (pre-)processing, here are some external resources that can help you start:
 
-- Dr. Saren H. Seeley's documentation on BIDS, fMRIPrep, MRIQC (local processing): https://rpubs.com/sarenseeley/463941
-- BIDS starter kit: https://bids-standard.github.io/bids-starter-kit/
-- fMRIPrep offical site: https://fmriprep.org/en/stable/
+- Dr. Saren H. Seeley's documentation on BIDS, fMRIPrep, MRIQC (local processing): [Read here](https://rpubs.com/sarenseeley/463941)
+- [BIDS starter kit](https://bids-standard.github.io/bids-starter-kit/)
+- fMRIPrep offical site: [Here](https://fmriprep.org/en/stable/)
 
+Join Neuroimaging Workshops group (on D2L) for more imaging data processing workshops and tutorials. Usually meet on Mondays. Email Dianne Patterson [dkp@arizona.edu](email:dkp@arizona.edu) to be added to the D2L site.
