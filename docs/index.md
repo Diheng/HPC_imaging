@@ -1,4 +1,8 @@
-# Welcome to MkDocs
+# Imaging (fMRI) data processing with High Performance Computing (HPC) cluster at the University of Arizona
+
+Author: Diheng Zhang (diheng.zhang@gmail.com)
+
+This is intended to be a documentation for starting fMRI data processing on HPC at UA. This is best read alongside with Saren
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
