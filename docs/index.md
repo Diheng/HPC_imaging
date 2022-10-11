@@ -1,6 +1,8 @@
 # Imaging (fMRI) data processing with High Performance Computing (HPC) cluster at the University of Arizona
 
 Diheng Zhang ([diheng.zhang@gmail.com](mailto:diheng.zhang@gmail.com))
+Docs created at: Oct 11th, 2022
+Docs updated at: <time>
 
 This is intended to be a documentation for starting fMRI data processing on HPC at UA. It mainly serves two purposes: 1. document the way I implement data (pre)processing for my doctoral dissertation and in the same time, 2. provide an example of one way to do that. This documentation is not intended to be exhaustive, however, external documentations will be provided at the beginning of each step for a deeper dive if needed.
 
