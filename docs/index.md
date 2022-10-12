@@ -45,6 +45,6 @@ You might also find this section of the Neuroimaging-core webpage helpful: [Neu
 
 ### Storage options:
 
-- HIPAA Box: This is recommanded if you want to do all your preprocessing on HPC. If you have access to a secure local machine for DICOM to BIDS convertion and defacing process (see below for more detail), you can skip this.
+- HIPAA Box: This is recommanded if you want to do all your preprocessing on HPC. If you have access to a secure local machine for DICOM to BIDS convertion and defacing process (see below for more detail), you can skip this. [Link to request](https://uarizona.service-now.com/), See Home > Service Catalog > Teaching and Learning > Academic Technology > Box > Box Health Account Request.
 
 Note: Each faculty at UA can request a 50 GB HIPAA Box account for free.
