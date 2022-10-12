@@ -7,7 +7,9 @@ Docs created at: Oct 11th, 2022
 Docs updated at: <time>
 
 Contributors:
-- Andrea Coppola
+- Andrea Coppola, M.A.
+- Dianne Patterson, Ph.D.
+- Teodora Stoica, Ph.D.
 
 This is intended to be a documentation for starting fMRI data processing on HPC at UA. It mainly serves two purposes: 1. document the way I implement data (pre)processing for my doctoral dissertation and in the same time, 2. provide an example of one way to do that. This documentation is not intended to be exhaustive, however, external documentations will be provided at the beginning of each step for a deeper dive if needed.
 
@@ -25,14 +27,14 @@ Join Neuroimaging Workshops group (on D2L) for more imaging data processing work
 
 ## Starting with HPC@UA
 
-Here is the page for requesting an accout for HPC@UA: [HPC Account Creation](https://public.confluence.arizona.edu/display/UAHPC/Account+Creation)
-
-If you are a PI, you will be registering a PI account, which will give you authority to sponsor individual or group access to HPC. For most of the graduate students, you will most likely requesting a sponsoered HPC account, which will be created upon approved from your sponsor (most likely your PI).
-
 ### External resources
 - Dr. Dianne Patterson's documentation on neural imaging on HPC@UA: [Neuroimaging-core documentation](https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/hpc.html)
 
 ### Setting up your account on HPC
+
+Here is the page for requesting an accout for HPC@UA: [HPC Account Creation](https://public.confluence.arizona.edu/display/UAHPC/Account+Creation)
+
+If you are a PI, you will be registering a PI account, which will give you authority to sponsor individual or group access to HPC. For most of the graduate students, you will most likely requesting a sponsoered HPC account, which will be created upon approved from your sponsor (most likely your PI).
 
 ### Transfering data to HPC
 
@@ -40,3 +42,9 @@ If you are a PI, you will be registering a PI account, which will give you autho
 Globus is the preferred way to transfer data from your local machine to HPC. Here is a 7 min video showing how to do that: [HPC 1b: Data Transfer](https://arizona.openclass.ai/resource/lesson-619ed67e898b4fb790c4e52a)  
   
 You might also find this section of the Neuroimaging-core webpage helpful: [Neuroimaging-core/Transferring Files](https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/hpc.html#transferring-files)
+
+### Storage options:
+
+- HIPAA Box: This is recommanded if you want to do all your preprocessing on HPC. If you have access to a secure local machine for DICOM to BIDS convertion and defacing process (see below for more detail), you can skip this.
+
+Note: Each faculty at UA can request a 50 GB HIPAA Box account for free.
