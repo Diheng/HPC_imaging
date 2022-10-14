@@ -1,10 +1,10 @@
 # Imaging (fMRI) data processing with High Performance Computing (HPC) cluster at the University of Arizona
 
-Diheng Zhang ([diheng.zhang@gmail.com](mailto:diheng.zhang@gmail.com))
+Created and maintained by: Diheng Zhang ([diheng.zhang@gmail.com](mailto:diheng.zhang@gmail.com))
 
 Docs created at: Oct 11th, 2022
 
-Docs updated at: <time>
+Docs updated at: 2022-10-14 12:19:22 
 
 Contributors:
 - Andrea Coppola, M.A.
