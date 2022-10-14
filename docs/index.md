@@ -25,6 +25,15 @@ Join Neuroimaging Workshops group (on D2L) for more imaging data processing work
 
 ![D2L_site](img/D2L.png)
 
+
+## Converting your DICOM files to BIDS format
+
+fMRIPrep is a *BIDS* app, meaning that it takes BIDS format data folders as input. BIDS stands for Brain Imaging Data Structure. It is recommended as a uniform structure to facilitate consistent collaboration between labs. See [BIDS starter kit](https://bids-standard.github.io/bids-starter-kit/) for more information.
+
+For data security purposes, it is recommended you convert your dataset with a secure local lab machine.
+
+For better incoporation of the fieldmap, we will use 
+
 ## Starting with HPC@UA
 
 ### External resources
@@ -36,7 +45,9 @@ Here is the page for requesting an accout for HPC@UA: [HPC Account Creation](htt
 
 If you are a PI, you will be registering a PI account, which will give you authority to sponsor individual or group access to HPC. For most of the graduate students, you will most likely requesting a sponsoered HPC account, which will be created upon approved from your sponsor (most likely your PI).
 
-### Transfering data to HPC
+### Transferring data to HPC
+
+*Note on data security:* HPC storages in general is not HIPAA compliant. It is recommended to convert your raw DICOM files to BIDS format, and then deface all imaging data before you transfer the data to HPC for further pre-processing.
 
 - Globus:
 Globus is the preferred way to transfer data from your local machine to HPC. Here is a 7 min video showing how to do that: [HPC 1b: Data Transfer](https://arizona.openclass.ai/resource/lesson-619ed67e898b4fb790c4e52a)  
