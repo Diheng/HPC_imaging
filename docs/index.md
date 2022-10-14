@@ -32,7 +32,7 @@ fMRIPrep is a *BIDS* app, meaning that it takes BIDS format data folders as inpu
 
 For data security purposes, it is recommended you convert your dataset with a secure local lab machine.
 
-For better incoporation of the fieldmap, we will use 
+Or, you can convert and deface your DICOM file to BIDS format with an online platform [ezbids](https://brainlife.io/ezbids/) by Brainlife. ezbids is a HIPAA compliant online platform that require you upload your raw DICOM folder. Documentation of ezbids see [here](https://github.com/brainlife/ezbids).
 
 ## Starting with HPC@UA
 
