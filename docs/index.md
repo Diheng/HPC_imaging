@@ -30,11 +30,11 @@ Join Neuroimaging Workshops group (on D2L) for more imaging data processing work
 
 fMRIPrep is a *BIDS* app, meaning that it takes BIDS format data folders as input. BIDS stands for Brain Imaging Data Structure. It is recommended as a uniform structure to facilitate consistent collaboration between labs. See [BIDS starter kit](https://bids-standard.github.io/bids-starter-kit/) for more information.
 
-For data security purposes, it is recommended you convert your dataset with a secure local lab machine.
+Option 1: For data security purposes, it is recommended you convert your dataset with a secure local lab machine, defaces (deidentify) your dataset, and then transfer it to HPC. For documentation on how to do this locally, see Saren's note on BIDS [here](https://rpubs.com/sarenseeley/463941). For instruction about defacing your dataset locally, see [here](https://arizona.openclass.ai/resource/lesson-62252eb99cfeb41cbcde2cd8)
 
-Or, you can convert and deface your DICOM file to BIDS format with an online platform [ezbids](https://brainlife.io/ezbids/) by Brainlife. ezbids is a HIPAA compliant online platform that require you upload your raw DICOM folder. Documentation of ezbids see [here](https://github.com/brainlife/ezbids).
+Option 2 (highly recommended): Or, you can convert and deface your DICOM file to BIDS format with an online platform [ezbids](https://brainlife.io/ezbids/) by Brainlife. ezbids is a HIPAA compliant online platform that require you upload your raw DICOM folder. Documentation of ezbids see [here](https://github.com/brainlife/ezbids).
 
-After you convert your DICOM files to BIDS format, we suggest that you use the [BIDS validator](https://bids-standard.github.io/bids-validator/) to check if the convertion is successful before you transfor your BIDS data to HPC.
+*Note:* After you convert your DICOM files to BIDS format, we suggest that you use the [BIDS validator](https://bids-standard.github.io/bids-validator/) to check if the convertion is successful before you transfor your BIDS data to HPC.
 
 ## Starting with HPC@UA
 
