@@ -73,3 +73,9 @@ Note: Each faculty at UA can request a 50 GB HIPAA Box account for free.
 - Google Drive: This is recommanded if your dataset has already been deidentified. Google Drive connects well with your Globus account with just a little of configuration. See above for details.
 
 ### Accessing files on HPC
+
+Option 1: You can access HPC with Open On Demand (OOD), but you need to request and gain access. See details [here](https://public.confluence.arizona.edu/display/UAHPC/Open+On+Demand). OOD provided a web-based GUI for HPC file management.
+
+*Note on decompressing your tar file:* If you compressed your dataset to tar before you transfer to HPC (which is recommended), you can click on "Open in terminal" in OOD and use this command to decompress your dataset:
+
+`tar -xvf [your dataset.tar]`
