@@ -78,7 +78,7 @@ Option 1: You can access HPC with Open On Demand (OOD), but you need to request 
 
 *Note on decompressing your tar file:* If you compressed your dataset to tar before you transfer to HPC (which is recommended), you can click on "Open in terminal" in OOD and use this command to decompress your dataset:
 
-`tar -xvf [your dataset.tar]`
+`$tar -xvf [your dataset.tar]`
 
 ## fMRI data preprocessing with fMRIPrep on HPC
 
@@ -90,7 +90,7 @@ The old fashion way, and probably the most intuitive way if you have previous ex
 
 After you are on the UA VPN (see [here](https://uarizona.service-now.com/sp?id=sc_cat_item&sys_id=8ab35af01bb830507947edf1604bcb90) if you have not set it up), open a terminal and then type:
 
-`ssh [your netid]@hpc.arizona.edu`
+`$ssh [your netid]@hpc.arizona.edu`
 
 Then you will be on the bastion host gateway.
 
@@ -102,14 +102,24 @@ After you are on the UA VPN, open any browser (Firefox or Chrome is recommended)
 
 ### Setting up your script for preprocessing with fMRIPrep on Singularity at HPC
 
-In your Home Directory, you should have a bin folder with several scripts (if you don’t let me know and I’ll show you how to copy it). One of the scripts runs all the subjects in parallel [runfmriprep_array.sh] so you have to edit the proper paths.
+In your Home Directory (type `$cd ~` if you are not sure), you should have a bin folder with several scripts (if you don’t let me know and I’ll show you how to copy it). 
 
-In your xdisk folder, make 2 blank directories called “derivatives” and “scratch.” In addition, make a file called subjects.txt with just the numbers of the subjects you want processed. At the end of the list, press enter and leave an empty space (otherwise it won’t process your last subject).
+One of the scripts runs fmriprep with singularity [runfmriprep.sh]. You will have to edit the .sh file with proper paths and account names.
 
-From the OOD command line *make sure it’s outside your BIDS directory* type:
+*Note:* In your xdisk BIDS folder, make 2 blank directories called “derivatives” and “scratch”. In addition, *outside of your BIDS folder*, make a file called subjects.txt with just the numbers of the subjects you want processed. At the end of the list, press enter and leave an empty space (otherwise it won’t process your last subject).
 
-Sbatchr [path to your runfmriprep_array.sh] subjects.txt  
+From the OOD command line or your terminal, navigate to your bin folder:
 
-Go to the Jobs tab, Active jobs and keep refreshing it until you see that it started running.
+`$cd ~/bin/`
+
+the, run one subject with:
+
+`$sbatch --export sub=[subject id] runfmriprep.sh`
+
+or run all your subjects in the subjects.txt file with:
+
+`$sbatchr runfmriprep.sh subjects.txt`
+
+Go to the OOD/Jobs tab, Active jobs and keep refreshing it until you see that it started running.
 
 **YOU’RE DONE!**
