@@ -79,3 +79,6 @@ Option 1: You can access HPC with Open On Demand (OOD), but you need to request 
 *Note on decompressing your tar file:* If you compressed your dataset to tar before you transfer to HPC (which is recommended), you can click on "Open in terminal" in OOD and use this command to decompress your dataset:
 
 `tar -xvf [your dataset.tar]`
+
+## fMRI data preprocessing with fMRIPrep on HPC
+
