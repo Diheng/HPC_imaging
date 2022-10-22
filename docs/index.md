@@ -82,3 +82,32 @@ Option 1: You can access HPC with Open On Demand (OOD), but you need to request 
 
 ## fMRI data preprocessing with fMRIPrep on HPC
 
+### Two ways of accessing HPC and running tasks
+
+Option 1: Using a terminal and ssh
+
+The old fashion way, and probably the most intuitive way if you have previous experience with command line and remote ssh login or work on other servers.
+
+After you are on the UA VPN (see [here](https://uarizona.service-now.com/sp?id=sc_cat_item&sys_id=8ab35af01bb830507947edf1604bcb90) if you have not set it up), open a terminal and then type:
+
+`ssh [your netid]@hpc.arizona.edu`
+
+Then you will be on the bastion host gateway.
+
+Option 2: Using OOD
+
+This is not much a different from the option 1, other than giving you a little bit of GUI.
+
+After you are on the UA VPN, open any browser (Firefox or Chrome is recommended), type in ood.hpc.arizona.edu, and then log in with your UA credential via SSO.
+
+In your Home Directory, you should have a bin folder with several scripts (if you don’t let me know and I’ll show you how to copy it). One of the scripts runs all the subjects in parallel [runfmriprep_array.sh] so you have to edit the proper paths.
+
+In your xdisk folder, make 2 blank directories called “derivatives” and “scratch.” In addition, make a file called subjects.txt with just the numbers of the subjects you want processed. At the end of the list, press enter and leave an empty space (otherwise it won’t process your last subject).
+
+From the OOD command line *make sure it’s outside your BIDS directory* type:
+
+Sbatchr [path to your runfmriprep_array.sh] subjects.txt  
+
+Go to the Jobs tab, Active jobs and keep refreshing it until you see that it started running.
+
+**YOU’RE DONE!**
