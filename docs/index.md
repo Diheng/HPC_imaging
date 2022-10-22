@@ -96,9 +96,11 @@ Then you will be on the bastion host gateway.
 
 Option 2: Using OOD
 
-This is not much a different from the option 1, other than giving you a little bit of GUI.
+This is not much different from the option 1, other than giving you a little bit of GUI.
 
 After you are on the UA VPN, open any browser (Firefox or Chrome is recommended), type in ood.hpc.arizona.edu, and then log in with your UA credential via SSO.
+
+### Setting up your script for preprocessing with fMRIPrep on Singularity at HPC
 
 In your Home Directory, you should have a bin folder with several scripts (if you don’t let me know and I’ll show you how to copy it). One of the scripts runs all the subjects in parallel [runfmriprep_array.sh] so you have to edit the proper paths.
 
