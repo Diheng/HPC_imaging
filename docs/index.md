@@ -120,9 +120,9 @@ From the OOD command line or your terminal, navigate to your data folder:
 
 `$cd ~/xdisk/[group name]/[your folder]/[BIDS folder]`
 
-*Note 1: I recommend visiting `/group/dkp/BIDS/` for an example of BIDS formatted folder structure. runfmriprep.sh takes a folder that is slightly different from the BIDS offical structure. There is a chance that your BIDS folder will pass the BIDS validator but still fail the runfmriprep.sh. Make sure that your BIDS folder structure is the same as /group/dkp/BIDS/*
+*Note 1:* I recommend visiting `/groups/dkp/BIDS/` for an example of BIDS formatted folder structure. runfmriprep.sh takes a folder that is slightly different from the BIDS offical structure. There is a chance that your BIDS folder will pass the BIDS validator but still fail the runfmriprep.sh. Make sure that your BIDS folder structure is the same as /group/dkp/BIDS/
 
-*Note 2: Make sure that you have a license.txt file under your ~/ folder. You can copy it from ~/bin/*
+*Note 2:* Make sure that you have a license.txt file under your ~/ folder. You can copy it from ~/bin/
 
 the, run one subject with:
 
