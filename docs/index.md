@@ -76,6 +76,14 @@ Note: Each faculty at UA can request a 50 GB HIPAA Box account for free.
 
 Option 1: You can access HPC with Open On Demand (OOD), but you need to request and gain access. See details [here](https://public.confluence.arizona.edu/display/UAHPC/Open+On+Demand). OOD provided a web-based GUI for HPC file management.
 
+Option 2: Use ssh.
+
+After you are on the UA VPN (see [here](https://uarizona.service-now.com/sp?id=sc_cat_item&sys_id=8ab35af01bb830507947edf1604bcb90) if you have not set it up), open a terminal and then type:
+
+`$ssh [your netid]@hpc.arizona.edu`
+
+Then you will be on the bastion host gateway.
+
 *Note on decompressing your tar file:* If you compressed your dataset to tar before you transfer to HPC (which is recommended), you can click on "Open in terminal" in OOD and use this command to decompress your dataset:
 
 `$tar -xvf [your dataset.tar]`
@@ -108,13 +116,17 @@ One of the scripts runs fmriprep with singularity [runfmriprep.sh]. You will hav
 
 *Note:* In your xdisk BIDS folder, make 2 blank directories called “derivatives” and “scratch”. In addition, *outside of your BIDS folder*, make a file called subjects.txt with just the numbers of the subjects you want processed. At the end of the list, press enter and leave an empty space (otherwise it won’t process your last subject).
 
-From the OOD command line or your terminal, navigate to your bin folder:
+From the OOD command line or your terminal, navigate to your data folder:
 
-`$cd ~/bin/`
+`$cd ~/xdisk/[group name]/[your folder]/[BIDS folder]`
+
+*Note 1: I recommend visiting `/group/dkp/BIDS/` for an example of BIDS formatted folder structure. runfmriprep.sh takes a folder that is slightly different from the BIDS offical structure. There is a chance that your BIDS folder will pass the BIDS validator but still fail the runfmriprep.sh. Make sure that your BIDS folder structure is the same as /group/dkp/BIDS/*
+
+*Note 2: Make sure that you have a license.txt file under your ~/ folder. You can cope it from ~/bin/*
 
 the, run one subject with:
 
-`$sbatch --export sub=[subject id] runfmriprep.sh`
+`$sbatch --export sub=[subject id] ~/bin/runfmriprep.sh`
 
 or run all your subjects in the subjects.txt file with:
 
