@@ -141,3 +141,13 @@ Go to the OOD/Jobs tab, Active jobs and keep refreshing it until you see that it
 Option 1: Use the Interactive Desktop on OOD. You can check the results on HPC via an interactive desktop.
 
 Option 2: Compress and move the derivative folder back to your local computer via Globus.
+
+### Array (parallel) jobs
+
+You can setup an array script which allow you to run multiple jobs with one command. This is ideal when you have already tested out running one subject and finding the configuration that you need. You can see Dianne's documentation [here](https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/hpc.html#running-lots-of-slurm-jobs).
+
+The basic idea is to copy your edited runfmriprep.sh codes starting from ###run your code here#### to the end of the arrary.sh file and save it as a new, arrayed version of your originial runfmriprep.sh (see `/groups/jallen/dihengzhang/bin/arrary_runfmriprep.sh` as an example).
+
+and then run all your subjects in the subjects.txt file with:
+
+`$sbatchr ~/bin/arrary_runfmriprep.sh subjects.txt`
