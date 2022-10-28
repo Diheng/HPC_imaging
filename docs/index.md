@@ -135,3 +135,9 @@ or run all your subjects in the subjects.txt file with:
 Go to the OOD/Jobs tab, Active jobs and keep refreshing it until you see that it started running.
 
 **YOU’RE DONE!**
+
+### Inspecting your results
+
+Option 1: Use the Interactive Desktop on OOD. You can check the results on HPC via an interactive desktop.
+
+Option 2: Compress and move the derivative folder back to your local computer via Globus.
