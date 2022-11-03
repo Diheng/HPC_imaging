@@ -188,3 +188,22 @@ The basic idea is to copy your edited runfmriprep.sh codes starting from ###run 
 and then run all your subjects in the subjects.txt file with:
 
 `$sbatchr ~/bin/arrary_runfmriprep.sh subjects.txt`
+
+## Setting up and running CONN with Matlab on HPC
+
+### Launching Matlab on HPC
+
+UA HPC has a few common data analysis software installed and allow you to access them via GUI, including Matlab, Mathematica, Stata, VSCode, Jupyter Notebook and RStudio.
+
+Go to Interactive Apps\Matlab\ and click Launch after you configure your node.
+
+For further instruction on Matlab on HPC see Dianne's Matlab documentation [here](https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/hpc.html#matlab-tools) and UA HPC's offical documentation [here](https://public.confluence.arizona.edu/display/UAHPC/Using+Matlab)
+
+### CONN with Matlab on HPC
+
+Once you fire up an interactive Matlab session, add your dataset and the CONN path to your working path.
+
+Then, just type `$ conn` in your matlab command line and hit enter.
+
+You can now use CONN just like you are on a local machine!
+
