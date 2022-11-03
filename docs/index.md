@@ -36,6 +36,43 @@ Option 2 (highly recommended): Or, you can convert and deface your DICOM file to
 
 *Note:* After you convert your DICOM files to BIDS format, we suggest that you use the [BIDS validator](https://bids-standard.github.io/bids-validator/) to check if the convertion is successful before you transfor your BIDS data to HPC.
 
+### DICOM raw data folder structure
+
+To save processing time and prevent file detection error on ezbids.io, it is recommended that you only upload the scans that you need (T1w, resting fMRI, etc.).
+
+A typical DICOM dataset you copy from a scanner, may looks like this (specially for Siemens scanner):
+
+```
+Folder PATH listing for volume RAID Imaging
+Volume serial number is 88E4-9172
+P:MORENO_PSILOCYBIN_20190617_112411_379000\
++---10VOLS_FMRI_3MM_2_2_0011
++---10VOLS_FMRI_3MM_SINGLEBAND_0013
++---AAHEAD_SCOUT_0001
++---AAHEAD_SCOUT_MPR_COR_0003
++---AAHEAD_SCOUT_MPR_SAG_0002
++---AAHEAD_SCOUT_MPR_TRA_0004
++---ASL_3D_TRA_FAST_0019
++---AX_WMN_MPRAGE_0021
++---BZERO_VERIFY_P-A_0018
++---DTI_64_DIRS_GRAPPA2_0015
++---DTI_64_DIRS_GRAPPA2_TENSOR_0017
++---GRE_FIELD_MAPPING_0009
++---GRE_FIELD_MAPPING_0010
++---MOCOSERIES_0006
++---MOCOSERIES_0012
++---MOCOSERIES_0014
++---PERFUSION_WEIGHTED_0020
++---RSFMRI_3MM_2_2_0005
++---SAG_3D_FLAIR_0008
++---T1_MPRAGE_SAG_ISO_0007
++---T1_MPRAGE_SAG_ISO_S7_ND_0016
+```
+
+For the exact meaning of each folder name, please contact the technician at the scan center. Most likely, the `RSFMRI` folder is your resting fMRI data, `T1_MPRAGE` folder is your T1w structural scan (if you have more than one T1w scan folder, be sure to check the exact number of each folder. In the example above, the `T1_MORAGE_..._ND_0016` folder refers to the T1w scan _without distortion correction_, which is different from the standard T1w scan).
+
+`GRE_FIELD_MAPPING` folders have two. The one with 84 image file (the first one) will become two images: magnitude1 and magnitude2. The fieldmap with 42 (the second one) will become the phasediff map. Ezbids can't recognize those correctly, and require you to assign the correct labels. You should get 3 images in the fmap directory from these two sets of dicoms. ezbids will allow you to indicate that these are intended for correcting the fMRI images, but you have to tell it to do that. The latest fmriprep will use them to do distortion correction even without the intendedfor (in other word IF you get the fieldmaps in the fmap directory, they should be used for correction. See this lesson on distortion correction: [here](https://arizona.openclass.ai/resource/lesson-6172f61631f96ff26f6eab1b)
+
 ## Starting with HPC@UA
 
 ### External resources
