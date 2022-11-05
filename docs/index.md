@@ -201,9 +201,11 @@ For further instruction on Matlab on HPC see Dianne's Matlab documentation [here
 
 ### CONN with Matlab on HPC
 
-Once you fire up an interactive Matlab session, add your dataset and the CONN path to your working path.
+Once you fire up an interactive Matlab session, add the CONN path to your working path (it should be `/groups/dkp/neuroimaging/matlab`).
 
 Then, just type `$ conn` in your matlab command line and hit enter.
 
 You can now use CONN just like you are on a local machine!
+
+*Note*: It is not recommended that you add your derivatives folder to your mat lab path. I have tried it a couple times and it always froze the process. Instead, fire up your CONN first and then select your derivatives folder within CONN.
 
