@@ -209,3 +209,10 @@ You can now use CONN just like you are on a local machine!
 
 *Note*: It is not recommended that you add your derivatives folder to your mat lab path. I have tried it a couple times and it always froze the process. Instead, fire up your CONN first and then select your derivatives folder within CONN.
 
+### Running your connectivity analysis with parallel processing
+
+There are a few twists you need to take care of to ensure a smooth HPC + CONN experience.
+
+#### Setting up your SLURM profile
+
+
