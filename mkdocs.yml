@@ -1,3 +1,4 @@
 site_name: HPC Imaging
+site_author: Diheng Zhang
 theme:
-    name: readthedoc
+    name: readthedocs
