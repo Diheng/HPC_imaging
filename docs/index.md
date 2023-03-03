@@ -1,6 +1,8 @@
-# Imaging (fMRI) data processing with High Performance Computing (HPC) cluster at the University of Arizona
+# Imaging (fMRI) data processing with High Performance Computing (HPC) cluster 
+at the University of Arizona
 
-Created and maintained by: Diheng Zhang ([diheng.zhang@gmail.com](mailto:diheng.zhang@gmail.com))
+Created and maintained by: Diheng Zhang 
+([diheng.zhang@gmail.com](mailto:diheng.zhang@gmail.com))
 
 Docs created at: Oct 11th, 2022
 
@@ -11,36 +13,59 @@ Contributors:
 - Dianne Patterson, Ph.D.
 - Teodora Stoica, Ph.D.
 
-This is intended to be a documentation for starting fMRI data processing on HPC at UA. It mainly serves two purposes: 1. document the way I implement data (pre)processing for my doctoral dissertation and in the same time, 2. provide an example of one way to do that. This documentation is not intended to be exhaustive, however, external documentations will be provided at the beginning of each step for a deeper dive if needed.
+This is intended to be a documentation for starting fMRI data processing on HPC 
+at UA. It mainly serves two purposes: 1. document the way I implement data 
+(pre)processing for my doctoral dissertation and in the same time, 2. provide 
+an example of one way to do that. This documentation is not intended to be 
+exhaustive, however, external documentations will be provided at the beginning 
+of each step for a deeper dive if needed.
 
 ## Starter resources
 
-If you have no other previous experience with MRI data (pre-)processing, here are some external resources that can help you start:
+If you have no other previous experience with MRI data (pre-)processing, here are
+some external resources that can help you start:
 
-- Dr. Saren H. Seeley's documentation on BIDS, fMRIPrep, MRIQC (local processing): [Read here](https://rpubs.com/sarenseeley/463941)
+- Dr. Saren H. Seeley's documentation on BIDS, fMRIPrep, MRIQC (local processing): 
+[Read here](https://rpubs.com/sarenseeley/463941)
 - [BIDS starter kit](https://bids-standard.github.io/bids-starter-kit/)
 - fMRIPrep offical site: [Here](https://fmriprep.org/en/stable/)
 
-Join Neuroimaging Workshops group (on D2L) for more imaging data processing workshops and tutorials. Usually meet on Mondays. Email Dianne Patterson ([dkp@arizona.edu](mailto:dkp@arizona.edu)) to be added to the D2L site.
+Join Neuroimaging Workshops group (on D2L) for more imaging data processing 
+workshops and tutorials. Usually meet on Mondays. Email Dianne Patterson 
+([dkp@arizona.edu](mailto:dkp@arizona.edu)) to be added to the D2L site.
 
 ![D2L_site](img/D2L.png)
 
 
 ## Converting your DICOM files to BIDS format
 
-fMRIPrep is a *BIDS* app, meaning that it takes BIDS format data folders as input. BIDS stands for Brain Imaging Data Structure. It is recommended as a uniform structure to facilitate consistent collaboration between labs. See [BIDS starter kit](https://bids-standard.github.io/bids-starter-kit/) for more information.
+fMRIPrep is a *BIDS* app, meaning that it takes BIDS format data folders 
+as input. BIDS stands for Brain Imaging Data Structure. It is recommended as 
+a uniform structure to facilitate consistent collaboration between labs. See 
+[BIDS starter kit](https://bids-standard.github.io/bids-starter-kit/) for more information.
 
-Option 1: For data security purposes, it is recommended you convert your dataset with a secure local lab machine, defaces (deidentify) your dataset, and then transfer it to HPC. For documentation on how to do this locally, see Saren's note on BIDS [here](https://rpubs.com/sarenseeley/463941). For instruction about defacing your dataset locally, see [here](https://arizona.openclass.ai/resource/lesson-62252eb99cfeb41cbcde2cd8)
+Option 1: For data security purposes, it is recommended you convert your dataset 
+with a secure local lab machine, defaces (deidentify) your dataset, and then 
+transfer it to HPC. For documentation on how to do this locally, see Saren's note 
+on BIDS [here](https://rpubs.com/sarenseeley/463941). For instruction about 
+defacing your dataset locally, see [here](https://arizona.openclass.ai/resource/lesson-62252eb99cfeb41cbcde2cd8)
 
-Option 2 (highly recommended): Or, you can convert and deface your DICOM file to BIDS format with an online platform [ezbids](https://brainlife.io/ezbids/) by Brainlife. ezbids is a HIPAA compliant online platform that require you upload your raw DICOM folder. Documentation of ezbids see [here](https://github.com/brainlife/ezbids).
+Option 2 (highly recommended): Or, you can convert and deface your DICOM file to 
+BIDS format with an online platform [ezbids](https://brainlife.io/ezbids/) by Brainlife. 
+ezbids is a HIPAA compliant online platform that require you upload your raw DICOM folder. 
+Documentation of ezbids see [here](https://github.com/brainlife/ezbids).
 
-*Note:* After you convert your DICOM files to BIDS format, we suggest that you use the [BIDS validator](https://bids-standard.github.io/bids-validator/) to check if the convertion is successful before you transfor your BIDS data to HPC.
+*Note:* After you convert your DICOM files to BIDS format, we suggest that you use 
+the [BIDS validator](https://bids-standard.github.io/bids-validator/) to check 
+if the convertion is successful before you transfor your BIDS data to HPC.
 
 ### DICOM raw data folder structure
 
-To save processing time and prevent file detection error on ezbids.io, it is recommended that you only upload the scans that you need (T1w, resting fMRI, etc.).
+To save processing time and prevent file detection error on ezbids.io, it is 
+recommended that you only upload the scans that you need (T1w, resting fMRI, etc.).
 
-A typical DICOM dataset you copy from a scanner, may looks like this (specially for Siemens scanner):
+A typical DICOM dataset you copy from a scanner, may looks like this (specially 
+for Siemens scanner):
 
 ```
 Folder PATH listing for volume RAID Imaging
@@ -69,43 +94,79 @@ P:MORENO_PSILOCYBIN_20190617_112411_379000\
 +---T1_MPRAGE_SAG_ISO_S7_ND_0016
 ```
 
-For the exact meaning of each folder name, please contact the technician at the scan center. Most likely, the `RSFMRI` folder is your resting fMRI data, `T1_MPRAGE` folder is your T1w structural scan (if you have more than one T1w scan folder, be sure to check the exact number of each folder. In the example above, the `T1_MORAGE_..._ND_0016` folder refers to the T1w scan _without distortion correction_, which is different from the standard T1w scan).
+For the exact meaning of each folder name, please contact the technician at the 
+scan center. Most likely, the `RSFMRI` folder is your resting fMRI data, 
+`T1_MPRAGE` folder is your T1w structural scan (if you have more than one T1w 
+scan folder, be sure to check the exact number of each folder. In the example 
+above, the `T1_MORAGE_..._ND_0016` folder refers to the T1w scan _without 
+distortion correction_, which is different from the standard T1w scan).
 
-`GRE_FIELD_MAPPING` folders have two. The one with 84 image file (the first one) will become two images: magnitude1 and magnitude2. The fieldmap with 42 (the second one) will become the phasediff map. Ezbids can't recognize those correctly, and require you to assign the correct labels. You should get 3 images in the fmap directory from these two sets of dicoms. ezbids will allow you to indicate that these are intended for correcting the fMRI images, but you have to tell it to do that. The latest fmriprep will use them to do distortion correction even without the intendedfor (in other word IF you get the fieldmaps in the fmap directory, they should be used for correction. See this lesson on distortion correction: [here](https://arizona.openclass.ai/resource/lesson-6172f61631f96ff26f6eab1b)
+`GRE_FIELD_MAPPING` folders have two. The one with 84 image file (the first one) 
+will become two images: magnitude1 and magnitude2. The fieldmap with 42 (the second 
+one) will become the phasediff map. Ezbids can't recognize those correctly, and 
+require you to assign the correct labels. You should get 3 images in the fmap directory 
+from these two sets of dicoms. ezbids will allow you to indicate that these are 
+intended for correcting the fMRI images, but you have to tell it to do that. 
+The latest fmriprep will use them to do distortion correction even without the 
+intendedfor (in other word IF you get the fieldmaps in the fmap directory, they 
+should be used for correction. See this lesson on distortion correction: 
+[here](https://arizona.openclass.ai/resource/lesson-6172f61631f96ff26f6eab1b)
 
 ## Starting with HPC@UA
 
 ### External resources
-- Dr. Dianne Patterson's documentation on neural imaging on HPC@UA: [Neuroimaging-core documentation](https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/hpc.html)
+- Dr. Dianne Patterson's documentation on neural imaging on HPC@UA: [Neuroimaging-core 
+documentation](https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/hpc.html)
 
 ### Setting up your account on HPC
 
-Here is the page for requesting an accout for HPC@UA: [HPC Account Creation](https://public.confluence.arizona.edu/display/UAHPC/Account+Creation)
+Here is the page for requesting an accout for HPC@UA: [HPC Account 
+Creation](https://public.confluence.arizona.edu/display/UAHPC/Account+Creation)
 
-If you are a PI, you will be registering a PI account, which will give you authority to sponsor individual or group access to HPC. For most of the graduate students, you will most likely requesting a sponsoered HPC account, which will be created upon approved from your sponsor (most likely your PI).
+If you are a PI, you will be registering a PI account, which will give you 
+authority to sponsor individual or group access to HPC. For most of the graduate 
+students, you will most likely requesting a sponsoered HPC account, which will be 
+created upon approved from your sponsor (most likely your PI).
 
 ### Transferring data to HPC
 
-*Note on data security:* HPC storages in general is not HIPAA compliant. It is recommended to convert your raw DICOM files to BIDS format, and then deface all imaging data before you transfer the data to HPC for further pre-processing.
+*Note on data security:* HPC storages in general is not HIPAA compliant. It is 
+recommended to convert your raw DICOM files to BIDS format, and then deface all 
+imaging data before you transfer the data to HPC for further pre-processing.
 
 - Globus:
-Globus is the preferred way to transfer data from your local machine to HPC. Here is a 7 min video showing how to do that: [HPC 1b: Data Transfer](https://arizona.openclass.ai/resource/lesson-619ed67e898b4fb790c4e52a)  
+Globus is the preferred way to transfer data from your local machine to HPC. 
+Here is a 7 min video showing how to do that: [HPC 1b: Data Transfer](https://arizona.openclass.ai/resource/lesson-619ed67e898b4fb790c4e52a)  
   
-You might also find this section of the Neuroimaging-core webpage helpful: [Neuroimaging-core/Transferring Files](https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/hpc.html#transferring-files)
+You might also find this section of the Neuroimaging-core webpage helpful: 
+[Neuroimaging-core/Transferring Files](https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/hpc.html#transferring-files)
 
-Step 1 - Register/Log in to [Globus](https://www.globus.org/): You can log in with your UA SSO credential. Just click "Log in" on the right upper corner and follow the instruction.
+Step 1 - Register/Log in to [Globus](https://www.globus.org/): You can log in 
+with your UA SSO credential. Just click "Log in" on the right upper corner and 
+follow the instruction.
 
-Step - 2 - Install Globus Connect Personal on your computer as an Endpoint: if your data is deidentified, you can use your personal laptop or any lab computer for this task. 
+Step - 2 - Install Globus Connect Personal on your computer as an Endpoint: if 
+your data is deidentified, you can use your personal laptop or any lab computer 
+for this task. 
 
-*Note for psychofizzer:* If you are a member for John Allen's Psychophysiology lab, just so you know that as of Oct 21, 2022, we don't have Globus Connect Personal installed on any of our term server. I have tried installing it but results in error.
+*Note for psychofizzer:* If you are a member for John Allen's Psychophysiology 
+lab, just so you know that as of Oct 21, 2022, we don't have Globus Connect 
+Personal installed on any of our term server. I have tried installing it but 
+results in error.
 
-Step - 2 (Alternative & recommended) - Use Google Drive for Globus: if you want to skip the Globus Connect Personal route, Globus also works with Google Drive. As an UA student your Google Drive account (same as your UA email address) comes with unlimited storage (but soon will be 15 GB). If your data is under 15 GB in total and has been deidentified, I recommend using Google Drive for Globus file transfer. I also recommend compressing your deidentified BIDS data into a single zip file before you move it to Google Drive for Globus, so that it saves you time and increase reliability of transferring. Documentation see [here](https://docs.globus.org/how-to/gcsv5.3/access-google-drive/). To connect your Google Drive to your Globus account, go to Collection tab and search "UA Google Drive" and go from there.
+Step - 2 (Alternative & recommended) - Use Google Drive for Globus: if you want 
+to skip the Globus Connect Personal route, Globus also works with Google Drive. 
+As an UA student your Google Drive account (same as your UA email address) comes 
+with unlimited storage (but soon will be 15 GB). If your data is under 15 GB in 
+total and has been deidentified, I recommend using Google Drive for Globus file 
+transfer. I also recommend compressing your deidentified BIDS data into a single 
+zip file before you move it to Google Drive for Globus, so that it saves you 
+time and increase reliability of transferring. Documentation see 
+[here](https://docs.globus.org/how-to/gcsv5.3/access-google-drive/). To 
+connect your Google Drive to your Globus account, go to Collection tab and 
+search "UA Google Drive" and go from there.
     
 ### A note on storage options
-
-- HIPAA Box: This is recommanded if you want to do all your preprocessing on HPC. If you have access to a secure local machine for DICOM to BIDS convertion and defacing process (see below for more detail), you can skip this. [Link to request](https://uarizona.service-now.com/), See Home > Service Catalog > Teaching and Learning > Academic Technology > Box > Box Health Account Request.
-
-Note: Each faculty at UA can request a 50 GB HIPAA Box account for free.
 
 - Google Drive: This is recommanded if your dataset has already been deidentified. Google Drive connects well with your Globus account with just a little of configuration. See above for details.
 
