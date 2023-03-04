@@ -145,16 +145,7 @@ Step 1 - Register/Log in to [Globus](https://www.globus.org/): You can log in
 with your UA SSO credential. Just click "Log in" on the right upper corner and 
 follow the instruction.
 
-Step - 2 - Install Globus Connect Personal on your computer as an Endpoint: if 
-your data is deidentified, you can use your personal laptop or any lab computer 
-for this task. 
-
-*Note for psychofizzer:* If you are a member for John Allen's Psychophysiology 
-lab, just so you know that as of Oct 21, 2022, we don't have Globus Connect 
-Personal installed on any of our term server. I have tried installing it but 
-results in error.
-
-Step - 2 (Alternative & recommended) - Use Google Drive for Globus: if you want 
+Step - 2 Use Google Drive for Globus: if you want 
 to skip the Globus Connect Personal route, Globus also works with Google Drive. 
 As an UA student your Google Drive account (same as your UA email address) comes 
 with unlimited storage (but soon will be 15 GB). If your data is under 15 GB in 
@@ -166,45 +157,38 @@ time and increase reliability of transferring. Documentation see
 connect your Google Drive to your Globus account, go to Collection tab and 
 search "UA Google Drive" and go from there.
     
-### A note on storage options
-
-- Google Drive: This is recommanded if your dataset has already been deidentified. Google Drive connects well with your Globus account with just a little of configuration. See above for details.
-
-### Accessing files on HPC
-
-Option 1: You can access HPC with Open On Demand (OOD), but you need to request and gain access. See details [here](https://public.confluence.arizona.edu/display/UAHPC/Open+On+Demand). OOD provided a web-based GUI for HPC file management.
-
-Option 2: Use ssh.
-
-After you are on the UA VPN (see [here](https://uarizona.service-now.com/sp?id=sc_cat_item&sys_id=8ab35af01bb830507947edf1604bcb90) if you have not set it up), open a terminal and then type:
-
-`$ssh [your netid]@hpc.arizona.edu`
-
-Then you will be on the bastion host gateway.
-
-*Note on decompressing your tar file:* If you compressed your dataset to tar before you transfer to HPC (which is recommended), you can click on "Open in terminal" in OOD and use this command to decompress your dataset:
+*Note on decompressing your tar file:* If you compressed your dataset to tar 
+before you transfer to HPC (which is recommended), you can click on "Open in 
+terminal" in OOD and use this command to decompress your dataset:
 
 `$tar -xvf [your dataset.tar]`
 
+See below for terminal access to the HPC.
+
+### A note on storage options
+
+- Google Drive: This is recommanded if your dataset has already been deidentified. 
+Google Drive connects well with your Globus account with just a little of 
+configuration. See above for details.
+
 ## fMRI data preprocessing with fMRIPrep on HPC
 
-### Two ways of accessing HPC and running tasks
+### Accessing files and running tasks on HPC
 
-Option 1: Using a terminal and ssh
+Option 1: You can access HPC with Open On Demand (OOD), but you need to request 
+and gain access. See details [here](https://public.confluence.arizona.edu/display/UAHPC/Open+On+Demand). 
+OOD provided a web-based GUI for HPC file management.
 
-The old fashion way, and probably the most intuitive way if you have previous experience with command line and remote ssh login or work on other servers.
+You can also click the 'Open in Terminal' button on the OOD page to open up a web-based command line window.
 
-After you are on the UA VPN (see [here](https://uarizona.service-now.com/sp?id=sc_cat_item&sys_id=8ab35af01bb830507947edf1604bcb90) if you have not set it up), open a terminal and then type:
+Option 2: Use ssh.
+
+After you are on the UA VPN (see [here](https://uarizona.service-now.com/sp?id=sc_cat_item&sys_id=8ab35af01bb830507947edf1604bcb90) 
+if you have not set it up), open a terminal and then type:
 
 `$ssh [your netid]@hpc.arizona.edu`
 
 Then you will be on the bastion host gateway.
-
-Option 2: Using OOD
-
-This is not much different from the option 1, other than giving you a little bit of GUI.
-
-After you are on the UA VPN, open any browser (Firefox or Chrome is recommended), type in ood.hpc.arizona.edu, and then log in with your UA credential via SSO.
 
 ### Setting up your script for preprocessing with fMRIPrep on Singularity at HPC
 
@@ -272,8 +256,18 @@ You can now use CONN just like you are on a local machine!
 
 ### Running your connectivity analysis with parallel processing
 
-There are a few twists you need to take care of to ensure a smooth HPC + CONN experience.
+TODO: There are a few twists you need to take care of to ensure a smooth HPC + CONN experience
 
 #### Setting up your SLURM profile
 
+TODO:
 
+## Setting up FSL on HPC
+
+It is always recommanded to use FSL from an interactive desktop (See OOD documentation).
+
+TODO: You also need to create a file under your ~/bin folder which setup the FSL path (more documentation will come).
+
+## Quality assurance analysis with MRIQC and QMTools
+
+TODO
