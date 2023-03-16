@@ -270,4 +270,8 @@ TODO: You also need to create a file under your ~/bin folder which setup the FSL
 
 ## Quality assurance analysis with MRIQC and QMTools
 
-TODO
+### Individual-level QC with MRIQC and fMRIPrep
+
+### Group-level QC with MRIQC and QMTools
+
+### Comparison to an aggretated sample with QMTools
