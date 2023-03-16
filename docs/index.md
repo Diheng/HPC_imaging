@@ -179,11 +179,13 @@ Option 1: You can access HPC with Open On Demand (OOD), but you need to request
 and gain access. See details [here](https://public.confluence.arizona.edu/display/UAHPC/Open+On+Demand). 
 OOD provided a web-based GUI for HPC file management.
 
-You can also click the 'Open in Terminal' button on the OOD page to open up a web-based command line window.
+You can also click the 'Open in Terminal' button on the OOD page to open up a 
+web-based command line window.
 
 Option 2: Use ssh.
 
-After you are on the UA VPN (see [here](https://uarizona.service-now.com/sp?id=sc_cat_item&sys_id=8ab35af01bb830507947edf1604bcb90) 
+After you are on the UA VPN (see 
+[here](https://uarizona.service-now.com/sp?id=sc_cat_item&sys_id=8ab35af01bb830507947edf1604bcb90) 
 if you have not set it up), open a terminal and then type:
 
 `$ssh [your netid]@hpc.arizona.edu`
@@ -192,19 +194,31 @@ Then you will be on the bastion host gateway.
 
 ### Setting up your script for preprocessing with fMRIPrep on Singularity at HPC
 
-In your Home Directory (type `$cd ~` if you are not sure), you should have a bin folder with several scripts (if you don’t let me know and I’ll show you how to copy it). 
+In your Home Directory (type `$cd ~` if you are not sure), you should have a 
+bin folder with several scripts (if you don’t let me know and I’ll show you 
+how to copy it). 
 
-One of the scripts runs fmriprep with singularity [runfmriprep.sh]. You will have to edit the .sh file with proper paths and account names.
+One of the scripts runs fmriprep with singularity [runfmriprep.sh]. You will 
+have to edit the .sh file with proper paths and account names.
 
-*Note:* In your xdisk BIDS folder, make 2 blank directories called “derivatives” and “scratch”. In addition, *outside of your BIDS folder*, make a file called subjects.txt with just the numbers of the subjects you want processed. At the end of the list, press enter and leave an empty space (otherwise it won’t process your last subject).
+*Note:* In your xdisk BIDS folder, make 2 blank directories called “derivatives” 
+and “scratch”. In addition, *outside of your BIDS folder*, make a file called 
+subjects.txt with just the numbers of the subjects you want processed. At the 
+end of the list, press enter and leave an empty space (otherwise it won’t 
+process your last subject).
 
 From the OOD command line or your terminal, navigate to your data folder:
 
 `$cd ~/xdisk/[group name]/[your folder]/[BIDS folder]`
 
-*Note 1:* I recommend visiting `/groups/dkp/BIDS/` for an example of BIDS formatted folder structure. runfmriprep.sh takes a folder that is slightly different from the BIDS offical structure. There is a chance that your BIDS folder will pass the BIDS validator but still fail the runfmriprep.sh. Make sure that your BIDS folder structure is the same as /group/dkp/BIDS/
+*Note 1:* I recommend visiting `/groups/dkp/BIDS/` for an example of BIDS 
+formatted folder structure. runfmriprep.sh takes a folder that is slightly 
+different from the BIDS offical structure. There is a chance that your BIDS 
+folder will pass the BIDS validator but still fail the runfmriprep.sh. Make 
+sure that your BIDS folder structure is the same as /group/dkp/BIDS/
 
-*Note 2:* Make sure that you have a license.txt file under your ~/ folder. You can copy it from ~/bin/
+*Note 2:* Make sure that you have a license.txt file under your ~/ folder. You 
+can copy it from ~/bin/
 
 the, run one subject with:
 
@@ -214,21 +228,30 @@ or run all your subjects in the subjects.txt file with:
 
 `$sbatchr runfmriprep.sh subjects.txt`
 
-Go to the OOD/Jobs tab, Active jobs and keep refreshing it until you see that it started running.
+Go to the OOD/Jobs tab, Active jobs and keep refreshing it until you see that 
+it started running.
 
 **YOU’RE DONE!**
 
 ### Inspecting your results
 
-Option 1: Use the Interactive Desktop on OOD. You can check the results on HPC via an interactive desktop.
+Option 1: Use the Interactive Desktop on OOD. You can check the results on HPC 
+via an interactive desktop.
 
-Option 2: Compress and move the derivative folder back to your local computer via Globus.
+Option 2: Compress and move the derivative folder back to your local computer 
+via Globus.
 
 ### Array (parallel) jobs
 
-You can setup an array script which allow you to run multiple jobs with one command. This is ideal when you have already tested out running one subject and finding the configuration that you need. You can see Dianne's documentation [here](https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/hpc.html#running-lots-of-slurm-jobs).
+You can setup an array script which allow you to run multiple jobs with one 
+command. This is ideal when you have already tested out running one subject and 
+finding the configuration that you need. You can see Dianne's documentation 
+[here](https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/hpc.html#running-lots-of-slurm-jobs).
 
-The basic idea is to copy your edited runfmriprep.sh codes starting from ###run your code here#### to the end of the arrary.sh file and save it as a new, arrayed version of your originial runfmriprep.sh (see `/groups/jallen/dihengzhang/bin/arrary_runfmriprep.sh` as an example).
+The basic idea is to copy your edited runfmriprep.sh codes starting from ###run 
+your code here#### to the end of the arrary.sh file and save it as a new, 
+arrayed version of your originial runfmriprep.sh (see 
+`/groups/jallen/dihengzhang/bin/arrary_runfmriprep.sh` as an example).
 
 and then run all your subjects in the subjects.txt file with:
 
@@ -238,25 +261,35 @@ and then run all your subjects in the subjects.txt file with:
 
 ### Launching Matlab on HPC
 
-UA HPC has a few common data analysis software installed and allow you to access them via GUI, including Matlab, Mathematica, Stata, VSCode, Jupyter Notebook and RStudio.
+UA HPC has a few common data analysis software installed and allow you to access 
+them via GUI, including Matlab, Mathematica, Stata, VSCode, Jupyter Notebook 
+and RStudio.
 
 Go to Interactive Apps\Matlab\ and click Launch after you configure your node.
 
-For further instruction on Matlab on HPC see Dianne's Matlab documentation [here](https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/hpc.html#matlab-tools) and UA HPC's offical documentation [here](https://public.confluence.arizona.edu/display/UAHPC/Using+Matlab)
+For further instruction on Matlab on HPC see Dianne's Matlab documentation 
+[here](https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/hpc.html#matlab-tools) 
+and UA HPC's offical documentation 
+[here](https://public.confluence.arizona.edu/display/UAHPC/Using+Matlab)
 
 ### CONN with Matlab on HPC
 
-Once you fire up an interactive Matlab session, add the CONN path to your working path (it should be `/groups/dkp/neuroimaging/matlab`).
+Once you fire up an interactive Matlab session, add the CONN path to your 
+working path (it should be `/groups/dkp/neuroimaging/matlab`).
 
 Then, just type `$ conn` in your matlab command line and hit enter.
 
 You can now use CONN just like you are on a local machine!
 
-*Note*: It is not recommended that you add your derivatives folder to your mat lab path. I have tried it a couple times and it always froze the process. Instead, fire up your CONN first and then select your derivatives folder within CONN.
+*Note*: It is not recommended that you add your derivatives folder to your mat 
+lab path. I have tried it a couple times and it always froze the process. 
+Instead, fire up your CONN first and then select your derivatives folder within 
+CONN.
 
 ### Running your connectivity analysis with parallel processing
 
-TODO: There are a few twists you need to take care of to ensure a smooth HPC + CONN experience
+TODO: There are a few twists you need to take care of to ensure a smooth HPC + 
+CONN experience
 
 #### Setting up your SLURM profile
 
@@ -264,9 +297,11 @@ TODO:
 
 ## Setting up FSL on HPC
 
-It is always recommanded to use FSL from an interactive desktop (See OOD documentation).
+It is always recommanded to use FSL from an interactive desktop (See OOD 
+documentation).
 
-TODO: You also need to create a file under your ~/bin folder which setup the FSL path (more documentation will come).
+TODO: You also need to create a file under your ~/bin folder which setup the 
+FSL path (more documentation will come).
 
 ## Quality assurance analysis with MRIQC and QMTools
 
@@ -274,4 +309,4 @@ TODO: You also need to create a file under your ~/bin folder which setup the FSL
 
 ### Group-level QC with MRIQC and QMTools
 
-### Comparison to an aggretated sample with QMTools
+### Comparison to an aggregated sample with QMTools
