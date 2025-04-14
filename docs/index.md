@@ -2,7 +2,7 @@
 at the University of Arizona
 
 Created and maintained by: Diheng Zhang 
-([diheng.zhang@gmail.com](mailto:diheng.zhang@gmail.com))
+([dihengzhang@arizona.edu](mailto:dihengzhang@arizona.edu))
 
 Docs created at: Oct 11th, 2022
 
