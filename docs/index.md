@@ -296,15 +296,17 @@ Setup your CONN setting correct to utilize parallel processing with Slurm
 - Step 1: Open CONN, go to Tools > HPC Options > Configuration
 - Step 2: See below for an example of the setup
 
-![CONN+Slurm](img/Slurm-computer-cluster.png)
+![CONN+Slurm-Config](img/Slurm-computer-cluster.png)
 
 Note:
 Complete command inside the "Command used to submit a job"
 `sbatch --job-name=JOBLABEL --account=jallen --partition=standard --error=STDERR --output=STDOUT OPTS SCRIPT`
 
-#### Setting up your SLURM profile
+Now you can easily parallel your processing on every step with CONN by selecting
+_distributed processing (run on Slurm computer cluster)_ when you run your 
+analysis.
 
-TODO:
+![CONN+Slurm-Run](img/Slurm-CONN.png)
 
 ## Setting up FSL on HPC
 
