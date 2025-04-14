@@ -6,7 +6,7 @@ Created and maintained by: Diheng Zhang
 
 Docs created at: Oct 11th, 2022
 
-Docs "-8/Last modified:[ \t]+%3a %3b %02H:%02M:%02S %Z %:y by %u"
+Last modified: [2025-04-14 Mon] 
 
 Contributors:
 
@@ -356,16 +356,15 @@ of each `*.html` file to see if any Errors was reported.
 
 If you were able to run fMRIPrep with `runfmriprep.sh` or
 `array_runfmriprep.sh`, running MRIQC on hpc with singularity is very similar.
-See the [fMRIPrep with Batch](#Batch script for preprocessing with fMRIPrep with
-Singularity at HPC) section. In `/home/u21/dihengzhang/bin` you can find
-examples of `runmriqc.sh` and `array_runmriqc.sh` for individual-level QC
-analysis.
+See the [fMRIPrep with
+Batch](#batch-script-for-preprocessing-with-fMRIPrep-with-Singularity-at-HPC)
+section. In `/home/u21/dihengzhang/bin` you can find examples of `runmriqc.sh`
+and `array_runmriqc.sh` for individual-level QC analysis.
 
 Command to run:
 
 ```
-
-
+sbatchr array_runmriqc_control.sh subjects.txt
 ```
 
 ### Group-level QC with MRIQC and QMTools
