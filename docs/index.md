@@ -357,7 +357,7 @@ of each `*.html` file to see if any Errors was reported.
 If you were able to run fMRIPrep with `runfmriprep.sh` or
 `array_runfmriprep.sh`, running MRIQC on hpc with singularity is very similar.
 See the [fMRIPrep with
-Batch](#batch-script-for-preprocessing-with-fMRIPrep-with-Singularity-at-HPC)
+Batch](#batch-script-for-preprocessing-with-fmriprep-with-singularity-at-hpc)
 section. In `/home/u21/dihengzhang/bin` you can find examples of `runmriqc.sh`
 and `array_runmriqc.sh` for individual-level QC analysis.
 
