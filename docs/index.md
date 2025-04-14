@@ -15,11 +15,16 @@ Contributors:
 - Teodora Stoica, Ph.D.
 
 This is intended to be a documentation for starting fMRI data processing on HPC 
-at UA. It mainly serves two purposes: 1. document the way I implement data 
-(pre)processing for my doctoral dissertation and in the same time, 2. provide 
-an example of one way to do that. This documentation is not intended to be 
-exhaustive, however, external documentations will be provided at the beginning 
-of each step for a deeper dive if needed.
+at UA. It mainly serves two purposes: 
+
+1. document the way I implement data (pre)processing for my doctoral
+   dissertation and in the same time;
+
+2. provide an example of one way to do that. 
+
+This documentation is not intended to be  exhaustive, however, external
+documentations will be provided at the beginning  of each step for a deeper dive
+if needed.
 
 ## Starter resources
 
