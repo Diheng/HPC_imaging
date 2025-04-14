@@ -17,10 +17,10 @@ Contributors:
 This is intended to be a documentation for starting fMRI data processing on HPC 
 at UA. It mainly serves two purposes: 
 
-1. document the way I implement data (pre)processing for my doctoral
+1. Document the way I implement data (pre)processing for my doctoral
    dissertation and in the same time;
 
-2. provide an example of one way to do that. 
+2. Provide an example of one way to do that. 
 
 This documentation is not intended to be  exhaustive, however, external
 documentations will be provided at the beginning  of each step for a deeper dive
@@ -36,8 +36,6 @@ some external resources that can help you start:
 - [BIDS starter kit](https://bids-standard.github.io/bids-starter-kit/)
 - fMRIPrep offical site: [Here](https://fmriprep.org/en/stable/)
 
-For documentations about HPC@UA, check out their awesome docs [here](https://hpcdocs.hpc.arizona.edu/)
-and past workshops materials [here](https://hpcdocs.hpc.arizona.edu/events/workshop_materials/).
 
 Join Neuroimaging Workshops group (on D2L) for more imaging data processing 
 workshops and tutorials. Usually meet on Mondays. Email Dianne Patterson 
@@ -122,9 +120,13 @@ should be used for correction. See this lesson on distortion correction:
 
 ## Starting with HPC@UA
 
-### External resources
+### Resources
 - Dr. Dianne Patterson's documentation on neural imaging on HPC@UA: [Neuroimaging-core 
 documentation](https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/hpc.html)
+
+- Offical HPC@UA Documentations: [here](https://hpcdocs.hpc.arizona.edu/)
+
+- Past HPC workshops materials: [here](https://hpcdocs.hpc.arizona.edu/events/workshop_materials/).
 
 ### Setting up your account on HPC
 
