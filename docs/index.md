@@ -202,7 +202,7 @@ if you have not set it up), open a terminal and then type:
 
 Then you will be on the bastion host gateway.
 
-### Setting up your script for preprocessing with fMRIPrep on Singularity at HPC
+### Batch script for preprocessing with fMRIPrep with Singularity at HPC
 
 In your Home Directory (type `$cd ~` if you are not sure), you should have a 
 bin folder with several scripts (if you don’t let me know and I’ll show you 
@@ -343,7 +343,30 @@ export PATH=$PATH:${FSLDIR}/bin
 
 ## Quality assurance analysis with MRIQC and QMTools
 
+*First*, make sure that all your subjects' image run correctly with fMRIPrep and
+successfully generate a `subject-ID.html` file for each subject. Go to the end
+of each `*.html` file to see if any Errors was reported.
+
 ### Individual-level QC with MRIQC and fMRIPrep
+
+- Check out Dianne's documentation about MRIQC and QMTOOLs
+  [here](https://neuroimaging-core-docs.readthedocs.io/en/latest/pages/bids_containers.html#mriqc-and-qmtools)
+  
+- Check out MRIQC's official documentations [here](https://mriqc.readthedocs.io/en/stable/)
+
+If you were able to run fMRIPrep with `runfmriprep.sh` or
+`array_runfmriprep.sh`, running MRIQC on hpc with singularity is very similar.
+See the [fMRIPrep with Batch](#Batch script for preprocessing with fMRIPrep with
+Singularity at HPC) section. In `/home/u21/dihengzhang/bin` you can find
+examples of `runmriqc.sh` and `array_runmriqc.sh` for individual-level QC
+analysis.
+
+Command to run:
+
+```
+
+
+```
 
 ### Group-level QC with MRIQC and QMTools
 
