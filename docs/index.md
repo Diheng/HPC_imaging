@@ -313,8 +313,26 @@ analysis.
 It is always recommanded to use FSL from an interactive desktop (See OOD 
 documentation).
 
-TODO: You also need to create a file under your ~/bin folder which setup the 
-FSL path (more documentation will come).
+You can choose to install FSL on your HPC account. See FSL documentation for 
+[installation instructions](https://fsl.fmrib.ox.ac.uk/fsl/docs/#/install/linux)
+
+Or, you can use other's installed FSL, just need to make sure that you have
+access to their folders and you configure your `~/.bashrc` file to include:
+
+```
+export FSLDIR=[path to installed FSL folder]
+source ${FSLDIR}/etc/fslconf/fsl.sh
+export PATH=$PATH:${FSLDIR}/bin
+```
+
+For example, you can use Dianne's version of FSL by putting these lines into
+your `~/.bashrc`
+
+```
+export FSLDIR=/groups/dkp/neuroimaging/fsl
+source ${FSLDIR}/etc/fslconf/fsl.sh
+export PATH=$PATH:${FSLDIR}/bin
+```
 
 ## Quality assurance analysis with MRIQC and QMTools
 
