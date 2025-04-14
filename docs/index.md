@@ -36,6 +36,9 @@ workshops and tutorials. Usually meet on Mondays. Email Dianne Patterson
 
 ![D2L_site](img/D2L.png)
 
+For documentations about HPC@UA, check out their awesome docs [here](https://hpcdocs.hpc.arizona.edu/)
+and past workshops materials [here](https://hpcdocs.hpc.arizona.edu/events/workshop_materials/).
+
 
 ## Converting your DICOM files to BIDS format
 
@@ -310,3 +313,4 @@ FSL path (more documentation will come).
 ### Group-level QC with MRIQC and QMTools
 
 ### Comparison to an aggregated sample with QMTools
+    
