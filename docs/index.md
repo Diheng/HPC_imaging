@@ -9,7 +9,8 @@ Docs created at: Oct 11th, 2022
 Docs updated at: 2025-04-14 12:19:22 
 
 Contributors:
-- Andrea Coppola, M.A.
+
+- Andrea Coppola, Ph.D.
 - Dianne Patterson, Ph.D.
 - Teodora Stoica, Ph.D.
 
@@ -30,15 +31,14 @@ some external resources that can help you start:
 - [BIDS starter kit](https://bids-standard.github.io/bids-starter-kit/)
 - fMRIPrep offical site: [Here](https://fmriprep.org/en/stable/)
 
+For documentations about HPC@UA, check out their awesome docs [here](https://hpcdocs.hpc.arizona.edu/)
+and past workshops materials [here](https://hpcdocs.hpc.arizona.edu/events/workshop_materials/).
+
 Join Neuroimaging Workshops group (on D2L) for more imaging data processing 
 workshops and tutorials. Usually meet on Mondays. Email Dianne Patterson 
 ([dkp@arizona.edu](mailto:dkp@arizona.edu)) to be added to the D2L site.
 
 ![D2L_site](img/D2L.png)
-
-For documentations about HPC@UA, check out their awesome docs [here](https://hpcdocs.hpc.arizona.edu/)
-and past workshops materials [here](https://hpcdocs.hpc.arizona.edu/events/workshop_materials/).
-
 
 ## Converting your DICOM files to BIDS format
 
@@ -280,7 +280,7 @@ and UA HPC's offical documentation
 Once you fire up an interactive Matlab session, add the CONN path to your 
 working path (it should be `/groups/dkp/neuroimaging/matlab`).
 
-Then, just type `$ conn` in your matlab command line and hit enter.
+Then, just type `$conn` in your matlab command line and hit enter.
 
 You can now use CONN just like you are on a local machine!
 
@@ -291,8 +291,16 @@ CONN.
 
 ### Running your connectivity analysis with parallel processing
 
-TODO: There are a few twists you need to take care of to ensure a smooth HPC + 
-CONN experience
+Setup your CONN setting correct to utilize parallel processing with Slurm
+
+- Step 1: Open CONN, go to Tools > HPC Options > Configuration
+- Step 2: See below for an example of the setup
+
+![CONN+Slurm](img/Slurm-computer-cluster.png)
+
+Note:
+Complete command inside the "Command used to submit a job"
+`sbatch --job-name=JOBLABEL --account=jallen --partition=standard --error=STDERR --output=STDOUT OPTS SCRIPT`
 
 #### Setting up your SLURM profile
 
