@@ -369,5 +369,14 @@ sbatchr array_runmriqc_control.sh subjects.txt
 
 ### Group-level QC with MRIQC and QMTools
 
+- See `runmriqc_group.sh` inside `/home/u21/dihengzhang/bin` for an example of 
+the batch file to run MRIQC on the group level.
+
+- After you have successfully run MRIQC on the subject level, run:
+
+```
+sbatch runmriqc_group.sh
+```
+
 ### Comparison to an aggregated sample with QMTools
     
