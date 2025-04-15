@@ -455,7 +455,7 @@ To use `qmviolin` to compare your results to the 50 record fetched from online.
 Here are examples of outcome visualizations:
 
 The Traffic light figure:
-![The Traffic light](Add screenshot later)
+![The Traffic light](img/Traffic.png)
 
 The violin comparison figure:
-![The Violin comparison](Add screenshot later)
+![The Violin comparison](img/Violin.png)
