@@ -380,3 +380,82 @@ sbatch runmriqc_group.sh
 
 ### Comparison to an aggregated sample with QMTools
     
+[QMTools](https://github.com/hickst/qmtools) is a handy package that help you
+"visualize, compare, and review the image quality metrics (IQMs) produced by the
+MRIQC program." It also provide functions to fetch an online sample to compare
+your own dataset to. The easiest way to use QMTools is to use the [QMTools
+Support](https://github.com/hickst/qmtools-support).
+
+*Step 1:* Clone the [QMTools Support](https://github.com/hickst/qmtools-support)
+to your HPC work folder.
+
+```
+git clone https://github.com/hickst/qmtools-support.git qmtools
+```
+
+*Step 2:* Copy your group level MRIQC data into the `qmtools/inputs` folder
+
+```
+cp ~/Project/derivatives/mriqc/group_*.tsv ~/Project/qmtools/inputs
+```
+
+*Step 3:* Use the `qmtraffic`, `qmfetcher` and `qmviolin` function to visualize
+and compare your results.
+
+Here is an example of generating the group level visualization and comparing it
+to 50 records from online, for project `FED`(Assuming you have done *Step 1* and
+*Step 2*).
+
+To generate the traffic light figure with `qmtraffic`
+
+For BOLD:
+```
+(base) [dihengzhang@r7u13n2 qmtools]$ ./qmtraffic_hpc -v bold inputs/group_bold.tsv -r FED
+(qmtraffic): Processing MRIQC group file 'inputs/group_bold.tsv' with modality 'bold'.
+(qmtraffic): Produced reports in reports directory 'reports/FED'.
+```
+For T1w:
+
+```
+(base) [dihengzhang@r7u13n2 qmtools]$ ./qmtraffic_hpc -v T1w inputs/group_T1w.tsv -r FED
+(qmtraffic): Processing MRIQC group file 'inputs/group_T1w.tsv' with modality 'T1w'.
+(qmtraffic): Produced reports in reports directory 'reports/FED'.
+(qmtraffic): To see the report: open 'reports/FED/T1w.html' in a browser.
+```
+
+To use `qmfetcher` to fetch 50 records from online:
+
+```
+(base) [dihengzhang@r7u13n2 qmtools]$ ./qmfetcher_hpc -v bold
+(qmfetcher): Querying MRIQC server with modality 'bold', for 50 records.
+(qmfetcher): Fetched 50 records out of None.
+(qmfetcher): Saved query results to 'fetched/bold_20250415_132123-448060.tsv'.
+(base) [dihengzhang@r7u13n2 qmtools]$ ./qmfetcher_hpc -v T1w
+(qmfetcher): Querying MRIQC server with modality 'T1w', for 50 records.
+(qmfetcher): Fetched 50 records out of None.
+(qmfetcher): Saved query results to 'fetched/T1w_20250415_132154-748048.tsv'.
+
+```
+
+To use `qmviolin` to compare your results to the 50 record fetched from online.
+
+```
+(base) [dihengzhang@r7u13n2 qmtools]$ ./qmviolin_hpc -v T1w fetched/T1w_20250415_132154-748048.tsv inputs/group_T1w.tsv -r FED_T1w_violin
+(qmviolin): Comparing MRIQC records with modality 'T1w'.
+(qmviolin): Compared group records against fetched records.
+(qmviolin): Produced violin report to 'reports/FED_T1w_violin'.
+(qmviolin): To see the report: open 'reports/FED_T1w_violin/violin.html' in a browser.
+(base) [dihengzhang@r7u13n2 qmtools]$ ./qmviolin_hpc -v bold fetched/bold_20250415_132123-448060.tsv inputs/group_bold.tsv -r FED_bold_violin
+(qmviolin): Comparing MRIQC records with modality 'bold'.
+(qmviolin): Compared group records against fetched records.
+(qmviolin): Produced violin report to 'reports/FED_bold_violin'.
+(qmviolin): To see the report: open 'reports/FED_bold_violin/violin.html' in a browser.
+```
+
+Here are examples of outcome visualizations:
+
+The Traffic light figure:
+![The Traffic light](Add screenshot later)
+
+The violin comparison figure:
+![The Violin comparison](Add screenshot later)
